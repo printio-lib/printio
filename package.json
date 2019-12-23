@@ -4,6 +4,7 @@
 	"description": "Super precise HTML element exporter to image/canvas/printer.",
 	"main": "./lib/index.cjs.js",
 	"module": "./lib/index.es.mjs",
+	"types": "./lib/types/index.d.ts",
 	"scripts": {
 		"pre-commit": "run-s format:fix lint",
 		"build": "run-s build:remove-src-js build:ts build:remove-src-js build:remove-lib build:rollup",

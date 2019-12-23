@@ -1,4 +1,4 @@
-import * as rasterizeHTML from 'rasterizehtml';
+import rasterizehtml from 'rasterizehtml';
 
 class ElementToCanvasUtilsClass {
 	async elementToCanvas(element: Element, width: number, height: number): Promise<HTMLCanvasElement> {
@@ -9,7 +9,7 @@ class ElementToCanvasUtilsClass {
 		canvas.height = height;
 
 		const elemDoc = element.ownerDocument;
-		await rasterizeHTML.drawDocument(elemDoc, canvas, { width, height });
+		await rasterizehtml.drawDocument(elemDoc, canvas, { width, height });
 
 		return canvas;
 	}
