@@ -4,6 +4,16 @@ import { DOMUtils } from './dom-utils';
 import { ElementToCanvasUtils } from './element-to-canvas-utils';
 
 class ElementExporterCSSConstants {
+	private static _instance: ElementExporterCSSConstants;
+	static get instance(): ElementExporterCSSConstants {
+		if (!ElementExporterCSSConstants._instance) {
+			ElementExporterCSSConstants._instance = new ElementExporterCSSConstants(
+				'a4023ad7-8bb2-4f71-adb0-38826e63d1d9',
+			);
+		}
+		return ElementExporterCSSConstants._instance;
+	}
+
 	readonly guid: string;
 
 	readonly elemMarkerClassName: string;
@@ -14,7 +24,7 @@ class ElementExporterCSSConstants {
 
 	readonly dstCSS: string;
 
-	constructor(guid: string) {
+	private constructor(guid: string) {
 		this.guid = guid;
 
 		this.elemMarkerClassName = `export-elem-${this.guid}`;
@@ -46,15 +56,13 @@ class ElementExporterCSSConstants {
 
 export class LowLevelElementExporter {
 	private readonly _element: HTMLElement;
-	private readonly _cssConstantsGUID: string;
 	private readonly _cssConstants: ElementExporterCSSConstants;
 	private readonly _srcBodyCSS: string;
 	private readonly _srcContentForExporting: string;
 
 	constructor(element: HTMLElement) {
 		this._element = element;
-		this._cssConstantsGUID = 'a4023ad7-8bb2-4f71-adb0-38826e63d1d9';
-		this._cssConstants = new ElementExporterCSSConstants(this._cssConstantsGUID);
+		this._cssConstants = ElementExporterCSSConstants.instance;
 		this._srcBodyCSS = element.ownerDocument.body.style.cssText;
 		this._srcContentForExporting = this.getElementWindowSrcForExporting(element);
 	}
