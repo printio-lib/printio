@@ -1,6 +1,6 @@
 {
 	"name": "printio",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"description": "Super precise HTML element exporter to image/canvas/printer.",
 	"main": "./lib/index.cjs.js",
 	"module": "./lib/index.es.mjs",
