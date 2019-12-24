@@ -1,11 +1,15 @@
+import { ExportElementMode } from './export-element-mode';
+import { ExportElementResult } from './export-element-result';
 export declare class ElementExporter {
-	private static exportElement;
-	printElement(element: HTMLElement): Promise<void>;
-	elementToCanvas(element: HTMLElement): Promise<HTMLCanvasElement>;
-	elementToPNGImage(element: HTMLElement): Promise<HTMLImageElement>;
-	elementToPNGDataUrl(element: HTMLElement): Promise<string>;
-	downloadPNGImageByElement(element: HTMLElement): Promise<void>;
-	elementToJPGImage(element: HTMLElement): Promise<HTMLImageElement>;
-	elementToJPGDataUrl(element: HTMLElement): Promise<string>;
-	downloadJPGImageByElement(element: HTMLElement): Promise<void>;
+	private readonly _element;
+	private readonly _cssConstants;
+	private readonly _srcBodyCSS;
+	private readonly _srcContentForExporting;
+	constructor(element: HTMLElement);
+	exportElement(exportElementMode: ExportElementMode): Promise<ExportElementResult>;
+	private getElementWindowSrcForExporting;
+	private computeDstWinSize;
+	private dstElemToCanvas;
+	private prepareDstDomForExporting;
+	private hideUnnecessaryElementsForExporting;
 }

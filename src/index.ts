@@ -1,3 +1,3 @@
-import { ElementExporter } from './lib/element-exporter';
+import { printio } from './lib/printio';
 
-export default new ElementExporter();
+export default printio;

@@ -1,3 +1,2 @@
-import { ElementExporter } from './lib/element-exporter';
-declare const _default: ElementExporter;
-export default _default;
+import { printio } from './lib/printio';
+export default printio;
